@@ -9,9 +9,12 @@ import java.util.List;
 
 public class Movie {
 
+    String movieId;
+    String backdropPath;
     String posterPath;
     String title;
     String overview;
+    double rating;
 
     public Movie(JSONObject jsonObject) throws JSONException {
 
@@ -28,6 +31,11 @@ public class Movie {
             movies.add(new Movie(movieJsonArray.getJSONObject(i)));
         }
         return movies;
+
+    }
+    public String getBackdropPath(){
+
+        return String.format("https://image.tmdb.org/t/p/w342/%s" ,backdropPath);
 
     }
 
